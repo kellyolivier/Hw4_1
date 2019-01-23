@@ -12,8 +12,13 @@ public class UI extends JFrame implements ActionListener{
         UI userInterface = new UI();
     }
 
+    /**
+     * constructor for UI class, sets up layout and other formatting of frame
+     * creates and sets up labels for dice
+     * adds roll button
+     */
     public UI() {
-        setSize(800, 500);
+        setSize(800, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
 
@@ -32,6 +37,10 @@ public class UI extends JFrame implements ActionListener{
 
     }
 
+    /**
+     * creates however many dice threads are needed based on the array of dice's length
+     * one thread per die obj
+     */
     public void makeDiceThreads()
     {
         for (int i=0; i< cs.length; i++) {
@@ -44,6 +53,10 @@ public class UI extends JFrame implements ActionListener{
         }
     }
 
+    /**
+     * on button press starts rolling all 5 dice in their 5 threads
+     * @param e action event of roll button click
+     */
     @Override
     public void actionPerformed(ActionEvent e)
     {

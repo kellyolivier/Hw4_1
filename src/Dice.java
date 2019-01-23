@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.util.Random;
 
+
+/**
+ * Class handles the actual creation and display of a single die object, as well as rolling it
+ */
 public class Dice implements Runnable
 {
     private Random rand = new Random();
@@ -13,10 +17,18 @@ public class Dice implements Runnable
     ImageIcon six = new ImageIcon("src/six.png");
 
 
-    public Dice(JLabel label2) {
-        label = label2;
+    /**
+     * constructor for a die
+     * @param newLabel the passed in label that this die is going to be added to
+     */
+    public Dice(JLabel newLabel) {
+        label = newLabel;
     }
 
+    /**
+     * controlls the number of times a die's face will change in a roll, with a minimum of 10
+     * calls changeFace for each time it needs to sleep and sleeps for ~1/3 second
+     */
     public void run() {
         int stop = rand.nextInt(20);
         stop += 10;
@@ -33,6 +45,9 @@ public class Dice implements Runnable
 
     }
 
+    /**
+     * changes face image based on a random number 1-6
+     */
     public void changeFace()
     {
         int randFace = rand.nextInt(6);
